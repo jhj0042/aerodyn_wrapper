@@ -1,0 +1,3 @@
+
+add_executable(test_libaerodyn test_libaerodyn.f90)
+target_link_libraries(test_libaerodyn AeroDynWrapper)

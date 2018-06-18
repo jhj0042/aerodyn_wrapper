@@ -1,0 +1,216 @@
+hji2016@pc-lheea331:~/AeroDyn/AeroDyn-master/CertTest$ ./test_libaerodyn 
+
+ **************************************************************************************************
+ AeroDyn Wrapper
+
+ Copyright (C)  National Renewable Energy Laboratory
+
+ This program is licensed under Apache License Version 2.0 and comes with ABSOLUTELY NO WARRANTY.
+ See the "LICENSE" file distributed with this software for details.
+ **************************************************************************************************
+
+  Running AeroDyn Wrapper
+  a part of OpenFAST - unversioned
+  linked with NWTC Subroutine Library
+
+ Opening input file:  AOC_Test02.dvr
+
+  AOC_AeroDyn.dat
+ Dvr_Init:ValidateInputs:OutFmt produces a column width of 15 instead of 10 characters.
+
+ Running case 1 of 3.
+    WndSpeed=11 m/s; ShearExp=0; RotSpeed=64.14 rpm; Pitch=0 deg; Yaw=-15 deg; dT=5.00000E-02 s;
+    Tmax=4 s; numSteps=80
+ Running AeroDyn.
+ Init_AeroDyn:AD_Init:ReadInputFiles:ReadPrimaryFile:Invalid logical input for file
+ "./AOC_AeroDyn_Test02.dat" occurred while trying to read CavitCheck.
+ AeroDyn Driver encountered simulation error level: FATAL ERROR
+
+  Aborting program.
+
+hji2016@pc-lheea331:~/AeroDyn/AeroDyn-master/CertTest$ ./test_libaerodyn 
+
+ **************************************************************************************************
+ AeroDyn Wrapper
+
+ Copyright (C)  National Renewable Energy Laboratory
+
+ This program is licensed under Apache License Version 2.0 and comes with ABSOLUTELY NO WARRANTY.
+ See the "LICENSE" file distributed with this software for details.
+ **************************************************************************************************
+
+  Running AeroDyn Wrapper
+  a part of OpenFAST - unversioned
+  linked with NWTC Subroutine Library
+
+ Opening input file:  NRELOffshrBsline5MW_Onshore_Test03.dvr
+
+  NRELOffshrBsline5MW_Onshore_AeroDyn15.dat
+ Dvr_Init:ValidateInputs:OutFmt produces a column width of 15 instead of 10 characters.
+
+ Running case 1 of 3.
+    WndSpeed=7 m/s; ShearExp=0; RotSpeed=12.1 rpm; Pitch=0 deg; Yaw=20 deg; dT=0.138 s;
+    Tmax=12.793 s; numSteps=93
+ Running AeroDyn.
+ Init_AeroDyn:AD_Init:ReadInputFiles:ReadPrimaryFile:Invalid logical input for file
+ "./NRELOffshrBsline5MW_Onshore_AeroDyn15_Test03.dat" occurred while trying to read CavitCheck.
+ AeroDyn Driver encountered simulation error level: FATAL ERROR
+
+  Aborting program.
+  
+  hji2016@pc-lheea331:~/AeroDyn/Aerodyn_ECN/CertTest$ ./test_libaerodyn 
+
+ **************************************************************************************************
+ AeroDyn Wrapper
+
+ Copyright (C)  National Renewable Energy Laboratory
+
+ This program is licensed under Apache License Version 2.0 and comes with ABSOLUTELY NO WARRANTY.
+ See the "LICENSE" file distributed with this software for details.
+ **************************************************************************************************
+
+  Running AeroDyn Wrapper
+  a part of OpenFAST - unversioned
+  linked with NWTC Subroutine Library
+
+ Opening input file:  AOC_Test01.dvr
+
+  AOC_AeroDyn.dat
+ Dvr_Init:ValidateInputs:OutFmt produces a column width of 15 instead of 10 characters.
+
+ Running case 1 of 3.
+    WndSpeed=11 m/s; ShearExp=0; RotSpeed=64.14 rpm; Pitch=0 deg; Yaw=-15 deg; dT=5.00000E-02 s;
+    Tmax=4 s; numSteps=80
+ Running AeroDyn.
+ Running AirfoilInfo.
+ Running BEM.
+ Running UnsteadyAero.
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 1
+
+ Running case 2 of 3.
+    WndSpeed=11 m/s; ShearExp=0; RotSpeed=64.14 rpm; Pitch=0 deg; Yaw=-15 deg; dT=5.00000E-03 s;
+    Tmax=4 s; numSteps=801
+ Running AeroDyn.
+ Running AirfoilInfo.
+ Running BEM.
+ Running UnsteadyAero.
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 1
+
+ Running case 3 of 3.
+    WndSpeed=11 m/s; ShearExp=0; RotSpeed=64.14 rpm; Pitch=0 deg; Yaw=-15 deg; dT=5.00000E-04 s;
+    Tmax=4 s; numSteps=8000
+ Running AeroDyn.
+ Running AirfoilInfo.
+ Running BEM.
+ Running UnsteadyAero.
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 1
+
+  Program terminated normally.
+
+hji2016@pc-lheea331:~/AeroDyn/Aerodyn_ECN/CertTest$ ./test_libaerodyn 
+
+ **************************************************************************************************
+ AeroDyn_driver
+
+ Copyright (C)  National Renewable Energy Laboratory
+
+ This program is licensed under Apache License Version 2.0 and comes with ABSOLUTELY NO WARRANTY.
+ See the "LICENSE" file distributed with this software for details.
+ **************************************************************************************************
+
+  Running AeroDyn_driver
+  a part of OpenFAST - unversioned
+  linked with NWTC Subroutine Library
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+ AeroDyn_Wrapper_Initialization:ValidateInputs:OutFmt produces a column width of 15 instead of 10
+ characters.
+
+ Running case 1 of 3.
+    WndSpeed=11 m/s; ShearExp=0; RotSpeed=64.14 rpm; Pitch=0 deg; Yaw=-15 deg; dT=5.00000E-02 s;
+    Tmax=4 s; numSteps=80
+ Running AeroDyn.
+ Running AirfoilInfo.
+ Running BEM.
+ Running UnsteadyAero.
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 1
+
+ Running case 2 of 3.
+    WndSpeed=11 m/s; ShearExp=0; RotSpeed=64.14 rpm; Pitch=0 deg; Yaw=-15 deg; dT=5.00000E-03 s;
+    Tmax=4 s; numSteps=801
+ Running AeroDyn.
+ Running AirfoilInfo.
+ Running BEM.
+ Running UnsteadyAero.
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 1
+
+ Running case 3 of 3.
+    WndSpeed=11 m/s; ShearExp=0; RotSpeed=64.14 rpm; Pitch=0 deg; Yaw=-15 deg; dT=5.00000E-04 s;
+    Tmax=4 s; numSteps=8000
+ Running AeroDyn.
+ Running AirfoilInfo.
+ Running BEM.
+ Running UnsteadyAero.
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 2
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 1, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 3
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 2, Blade = 1
+ Warning: Turning off Unsteady Aerodynamics due to high angle-of-attack. BladeNode = 3, Blade = 1
+
+  Program terminated normally.
+

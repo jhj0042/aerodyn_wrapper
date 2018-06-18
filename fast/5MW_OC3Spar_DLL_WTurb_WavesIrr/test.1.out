@@ -1,0 +1,8 @@
+
+Predictions were generated on 25-May-2018 at 11:15:06 using AeroDyn_Wrapper
+ AeroDyn
+
+Case 1: WndSpeed=7 m/s; ShearExp=0 ; RotSpeed=12.1 rpm; Pitch=0 deg; Yaw=20 deg; dT=0.138 s; Tmax=12.793 s
+
+     Time           	RtArea    	B1N3Clrnc 	B2N3Clrnc 	B3N3Clrnc 
+      (s)           	(m^2)     	(m)       	(m)       	(m)       
