@@ -217,7 +217,7 @@ contains
         real, dimension(6), intent(in)  :: velocity  ! input  = velocity (to be explicited with Jean-Christophe)
         real, dimension(6), intent(out) :: force     ! output = wrench in 6 dof (to be explicited with Jean-Christophe)
         integer :: i,j,k
-        real    :: r
+        real    :: r(3, AD%p%NumBlnds, AD%p%numBlades)
 
 
         !======================================================================
@@ -255,15 +255,18 @@ contains
 
 
             ! update velocity here
+            !============================================================================================
 
-            do i = 1, 3
-                do j = 1, AD%p%NumBlnds
-                    do k = 1, AD%p%numBlades
+            !do i = 1, 3
+             !   do j = 1, AD%p%NumBlnds
+              !      do k = 1, AD%p%numBlades
                         call RANDOM_NUMBER(r)
-                        AD%u(2)%InflowOnBlade(i,j,k) = AD%u(2)%InflowOnBlade(i,j,k) + 2 * r -1
-                    end do
-                end do
-            end do
+                !        AD%u(2)%InflowOnBlade(i,j,k) = AD%u(2)%InflowOnBlade(i,j,k) + 2 * r -1
+                 !   end do
+                !end do
+            !end do
+            AD%u(2)%InflowOnBlade = AD%u(2)%InflowOnBlade + 2 * r -1
+            !============================================================================================
 
             call Dvr_InitializeOutputFile( iCase, DvrData%Cases(iCase), DvrData%OutFileData, errStat, errMsg)
             call CheckError()
