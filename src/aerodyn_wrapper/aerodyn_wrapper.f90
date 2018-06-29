@@ -72,9 +72,9 @@ contains
    ! Display the copyright notice
    CALL DispCopyrightLicense( version )
    ! Obtain OpenFAST git commit hash
-   git_commit = QueryGitVersion()
+   !git_commit = QueryGitVersion()
    ! Tell our users what they're running
-   CALL WrScr( ' Running '//GetNVD( version )//' modified from a part of OpenFAST - '//TRIM(git_Commit)//NewLine//' linked with '//TRIM( GetNVD( NWTC_Ver ))//NewLine )
+   CALL WrScr( ' Running '//GetNVD( version )//' modified from a part of OpenFAST - '//NewLine//' linked with '//TRIM( GetNVD( NWTC_Ver ))//NewLine )
 
 
    ! provide DvrData here:
@@ -138,12 +138,10 @@ contains
    DvrData%Cases(2)%dT              = 0.0138
    DvrData%Cases(3)%dT              = 0.00138
 
-
    ! validate the inputs
    call ValidateInputs(DvrData, errStat2, errMsg2)
       call SetErrStat(errStat2, errMsg2, ErrStat, ErrMsg, RoutineName)
          call CheckError()
-
 
     contains
 
@@ -165,9 +163,6 @@ contains
         end subroutine CheckError
 
     end subroutine Initialize
-
-
-
 
     !! ======================================================================
     ! This is intended to be called during a time loop to exchange information
@@ -252,9 +247,6 @@ contains
                 call Dvr_WriteOutputLine(DvrData%OutFileData, time, AD%y%WriteOutput, errStat, errMsg)
                 call CheckError()
 
-
-
-
                 ! Get state variables at next step: INPUT at step nt - 1, OUTPUT at step nt
 
                 call AD_UpdateStates( time, nt-1, AD%u, AD%InputTime, AD%p, AD%x, AD%xd, AD%z, AD%OtherState, AD%m, errStat, errMsg )
@@ -293,8 +285,6 @@ contains
 
         end subroutine CheckError
 
-
-
     end subroutine Update
 
     !! ======================================================================
@@ -331,8 +321,5 @@ contains
 
 
     end subroutine Finalize
-
-
-
 
 end module aerodyn_wrapper
