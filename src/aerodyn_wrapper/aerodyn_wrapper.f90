@@ -61,15 +61,7 @@ contains
    AD_Initialized = .false.
    
    time        = 0.0 ! seconds
-      
-            
-      ! Get the current time
-   !call date_and_time ( Values=StrtTime )                               ! Let's time the whole simulation
-   !call cpu_time ( UsrTime1 )                                           ! Initial time (this zeros the start time when used as a MATLAB function)
 
-   ! initialize this driver:
-!   call Dvr_Init( DvrData, ErrStat, ErrMsg, filename)
-!      call CheckError()
 
 !======================================================================
    ! since skipped Dvr_Init we have to now set DvrData and validate these inputs
@@ -133,7 +125,7 @@ contains
 
    do ICase=1,DvrData%NumCases
 
-      DvrData%Cases(iCase)%WndSpeed        = 0.0000000E+00
+      DvrData%Cases(iCase)%WndSpeed        = 7.0000000E+00
       DvrData%Cases(ICase)%ShearExp        = 0.0000000E+00
       DvrData%Cases(ICase)%RotSpeed        = 12.1*RPM2RPS
       DvrData%Cases(ICase)%Pitch           = 0.0000000E+00*D2R
@@ -166,42 +158,11 @@ contains
                 call WrScr(TRIM(ErrMsg))
 
                 if (ErrStat >= AbortErrLev) then
-                    call Dvr_End()
+                    call Finalize()
                 end if
             end if
 
         end subroutine CheckError
-
-        subroutine Dvr_End()
-
-            ! Local variables
-            character(ErrMsgLen)                          :: errMsg2                 ! temporary Error message if ErrStat /= ErrID_None
-            integer(IntKi)                                :: errStat2                ! temporary Error status of the operation
-
-            character(*), parameter                       :: RoutineName = 'Dvr_End'
-            ! Close the output file
-            if (DvrData%OutFileData%unOutFile > 0) close(DvrData%OutFileData%unOutFile)
-
-            if ( AD_Initialized ) then
-                call AD_End( AD%u(1), AD%p, AD%x, AD%xd, AD%z, AD%OtherState, AD%y, AD%m, errStat2, errMsg2 )
-                call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
-            end if
-
-            call AD_Dvr_DestroyDvr_SimData( DvrData, ErrStat2, ErrMsg2 )
-            call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
-
-            call AD_Dvr_DestroyAeroDyn_Data( AD, ErrStat2, ErrMsg2 )
-            call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
-
-            if (ErrStat >= AbortErrLev) then
-                CALL ProgAbort( 'AeroDyn Wrapper encountered simulation error level: '&
-                        //TRIM(GetErrStr(ErrStat)), TrapErrors=.FALSE., TimeWait=3._ReKi )  ! wait 3 seconds (in case they double-clicked and got an error)
-            else
-                call NormStop()
-            end if
-
-
-        end subroutine Dvr_End
 
     end subroutine Initialize
 
@@ -265,7 +226,7 @@ contains
                  !   end do
                 !end do
             !end do
-            AD%u(2)%InflowOnBlade = AD%u(2)%InflowOnBlade + 2 * r -1
+            AD%u(2)%InflowOnBlade = AD%u(2)%InflowOnBlade + 4 * r -2
             !============================================================================================
 
             call Dvr_InitializeOutputFile( iCase, DvrData%Cases(iCase), DvrData%OutFileData, errStat, errMsg)
@@ -326,42 +287,13 @@ contains
                 call WrScr(TRIM(ErrMsg))
 
                 if (ErrStat >= AbortErrLev) then
-                    call Dvr_End()
+                    call Finalize()
                 end if
             end if
 
         end subroutine CheckError
 
-        subroutine Dvr_End()
 
-            ! Local variables
-            character(ErrMsgLen)                          :: errMsg2                 ! temporary Error message if ErrStat /= ErrID_None
-            integer(IntKi)                                :: errStat2                ! temporary Error status of the operation
-
-            character(*), parameter                       :: RoutineName = 'Dvr_End'
-            ! Close the output file
-            if (DvrData%OutFileData%unOutFile > 0) close(DvrData%OutFileData%unOutFile)
-
-            if ( AD_Initialized ) then
-                call AD_End( AD%u(1), AD%p, AD%x, AD%xd, AD%z, AD%OtherState, AD%y, AD%m, errStat2, errMsg2 )
-                call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
-            end if
-
-            call AD_Dvr_DestroyDvr_SimData( DvrData, ErrStat2, ErrMsg2 )
-            call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
-
-            call AD_Dvr_DestroyAeroDyn_Data( AD, ErrStat2, ErrMsg2 )
-            call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
-
-            if (ErrStat >= AbortErrLev) then
-                CALL ProgAbort( 'AeroDyn Wrapper encountered simulation error level: '&
-                        //TRIM(GetErrStr(ErrStat)), TrapErrors=.FALSE., TimeWait=3._ReKi )  ! wait 3 seconds (in case they double-clicked and got an error)
-            else
-                call NormStop()
-            end if
-
-
-        end subroutine Dvr_End
 
     end subroutine Update
 
@@ -374,7 +306,7 @@ contains
         ! Local variables
         character(ErrMsgLen)                          :: errMsg2                 ! temporary Error message if ErrStat /= ErrID_None
         integer(IntKi)                                :: errStat2                ! temporary Error status of the operation
-        character(*), parameter                       :: RoutineName = 'Dvr_End'
+        character(*), parameter                       :: RoutineName = 'Finalize()'
         ! Close the output file
         if (DvrData%OutFileData%unOutFile > 0) close(DvrData%OutFileData%unOutFile)
 
