@@ -3,6 +3,6 @@ a wrapper for AeroDyn v15 in order to be used for simulating offshore floating w
 
 obtain AeroDyn from OpenFAST NREL: https://github.com/OpenFAST/openfast
 
-Currently working on feeding Data without .dvr file
+Working on feeding Data without .dvr file done
 
-Will work on doing calculation under update subroutine
+Work on doing calculation under update subroutine done
