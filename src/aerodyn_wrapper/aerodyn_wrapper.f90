@@ -216,6 +216,9 @@ contains
     subroutine Update(velocity, force)
         real, dimension(6), intent(in)  :: velocity  ! input  = velocity (to be explicited with Jean-Christophe)
         real, dimension(6), intent(out) :: force     ! output = wrench in 6 dof (to be explicited with Jean-Christophe)
+        integer :: i,j,k
+        real    :: r
+
 
         !======================================================================
 
@@ -250,6 +253,17 @@ contains
                 call CheckError()
             end if
 
+
+            ! update velocity here
+
+            do i = 1, 3
+                do j = 1, AD%p%NumBlnds
+                    do k = 1, AD%p%numBlades
+                        call RANDOM_NUMBER(r)
+                        AD%u(2)%InflowOnBlade(i,j,k) = AD%u(2)%InflowOnBlade(i,j,k) + 2 * r -1
+                    end do
+                end do
+            end do
 
             call Dvr_InitializeOutputFile( iCase, DvrData%Cases(iCase), DvrData%OutFileData, errStat, errMsg)
             call CheckError()
@@ -298,6 +312,8 @@ contains
             end do
 
         end do !iCase = 1, DvrData%NumCases
+
+        ! output force here
 
     contains
 
@@ -352,39 +368,32 @@ contains
     ! were allocated during initialization
     subroutine Finalize()
 
-        call Dvr_End()
+        ! Local variables
+        character(ErrMsgLen)                          :: errMsg2                 ! temporary Error message if ErrStat /= ErrID_None
+        integer(IntKi)                                :: errStat2                ! temporary Error status of the operation
+        character(*), parameter                       :: RoutineName = 'Dvr_End'
+        ! Close the output file
+        if (DvrData%OutFileData%unOutFile > 0) close(DvrData%OutFileData%unOutFile)
 
-        contains
-            subroutine Dvr_End()
-
-                ! Local variables
-                character(ErrMsgLen)                          :: errMsg2                 ! temporary Error message if ErrStat /= ErrID_None
-                integer(IntKi)                                :: errStat2                ! temporary Error status of the operation
-
-                character(*), parameter                       :: RoutineName = 'Dvr_End'
-                ! Close the output file
-                if (DvrData%OutFileData%unOutFile > 0) close(DvrData%OutFileData%unOutFile)
-
-                if ( AD_Initialized ) then
-                    call AD_End( AD%u(1), AD%p, AD%x, AD%xd, AD%z, AD%OtherState, AD%y, AD%m, errStat2, errMsg2 )
-                    call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
-                end if
-
-                call AD_Dvr_DestroyDvr_SimData( DvrData, ErrStat2, ErrMsg2 )
+        if ( AD_Initialized ) then
+            call AD_End( AD%u(1), AD%p, AD%x, AD%xd, AD%z, AD%OtherState, AD%y, AD%m, errStat2, errMsg2 )
                 call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
+        end if
 
-                call AD_Dvr_DestroyAeroDyn_Data( AD, ErrStat2, ErrMsg2 )
-                call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
+        call AD_Dvr_DestroyDvr_SimData( DvrData, ErrStat2, ErrMsg2 )
+            call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
 
-                if (ErrStat >= AbortErrLev) then
-                    CALL ProgAbort( 'AeroDyn Wrapper encountered simulation error level: '&
-                            //TRIM(GetErrStr(ErrStat)), TrapErrors=.FALSE., TimeWait=3._ReKi )  ! wait 3 seconds (in case they double-clicked and got an error)
-                else
-                    call NormStop()
-                end if
+        call AD_Dvr_DestroyAeroDyn_Data( AD, ErrStat2, ErrMsg2 )
+            call SetErrStat( errStat2, errMsg2, errStat, errMsg, RoutineName )
+
+        if (ErrStat >= AbortErrLev) then
+            CALL ProgAbort( 'AeroDyn Wrapper encountered simulation error level: '&
+                    //TRIM(GetErrStr(ErrStat)), TrapErrors=.FALSE., TimeWait=3._ReKi )  ! wait 3 seconds (in case they double-clicked and got an error)
+        else
+            call NormStop()
+        end if
 
 
-            end subroutine Dvr_End
 
     end subroutine Finalize
 
