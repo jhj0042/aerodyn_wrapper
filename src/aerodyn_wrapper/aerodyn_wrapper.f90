@@ -93,7 +93,7 @@ contains
    DvrData%Overhang = -5.0191
    DvrData%ShftTilt = -5
    DvrData%precone = -2.5
-   DvrData%OutFileData%Root = "test"
+   DvrData%OutFileData%Root = ""
 
    if (len_trim(DvrData%OutFileData%Root) == 0) then
       call getroot(fileName,DvrData%OutFileData%Root)
@@ -172,7 +172,7 @@ contains
     subroutine Update(velocity, force)
         real, dimension(6), intent(in)  :: velocity  ! input  = velocity (to be explicited with Jean-Christophe)
         real, dimension(6), intent(out) :: force     ! output = wrench in 6 dof (to be explicited with Jean-Christophe)
-        integer :: i,j,k
+    !    integer :: i,j,k
         real    :: r(3, AD%p%NumBlnds, AD%p%numBlades)
 
 
